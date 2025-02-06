@@ -196,10 +196,15 @@ class MinesweeperAI():
         raise NotImplementedError
 
     def make_random_move(self):
-        """
-        Returns a move to make on the Minesweeper board.
-        Should choose randomly among cells that:
-            1) have not already been chosen, and
-            2) are not known to be mines
-        """
-        raise NotImplementedError
+        possible_moves = []
+        for i in range(self.height):
+            for j in range(self.width):
+
+                cell = (i, j)
+                if cell not in self.moves_made and cell not in self.mines:
+                    possible_moves.append(cell)
+
+        if possible_moves:
+            return random.choice(possible_moves)
+
+        return None
