@@ -1,5 +1,6 @@
 import itertools
 import random
+from tracemalloc import get_object_traceback
 
 
 class Minesweeper():
